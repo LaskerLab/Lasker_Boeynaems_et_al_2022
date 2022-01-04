@@ -11,7 +11,7 @@ Simualtion files
 
 qPCR data
 
-ChpT locolization data
+ChpT localization data - 
 
 fasta files with PopZ alignments
 
