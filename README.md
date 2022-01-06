@@ -11,6 +11,6 @@
 
 Simualtion files
 
-ChpT localization data - 
+[ChpT partitioning](https://github.com/LaskerLab/doi_10.1101_2021.02.03.429226_SI/tree/main/data/ChpT_partitioning): Data and analysis of ChpT partitioning into PopZ condensates.
 
 
