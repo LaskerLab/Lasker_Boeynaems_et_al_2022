@@ -3,7 +3,7 @@
 
 ### Data repository and analysis routines used 
 
-[Phase diagram](https://github.com/LaskerLab/doi_10.1101_2021.02.03.429226_SI/blob/main/data/wildtype_PopZ_Cc_phase_diagram_raw_data.xlsx): Phase diagram measurements used in Extended Data Figure 1.
+[PopZ phase behavior _in vitro_](https://github.com/LaskerLab/doi_10.1101_2021.02.03.429226_SI/tree/main/data/PopZ_phase_behavior_in_vitro_source_data): Source data for Extended Data Figure 1.
 
 [SAXS](https://github.com/LaskerLab/doi_10.1101_2021.02.03.429226_SI/blob/main/data/wildtype_PopZ_Cc_SAXS.dat): Small-angle X-ray scattering data used in Extended Data Figure 5.
 
