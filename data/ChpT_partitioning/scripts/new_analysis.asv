@@ -1,0 +1,191 @@
+%{
+Keren Lasker
+May, 2020
+%}
+
+%{
+This script is used to run analysis for all linkers.
+Parameters the user can set:
+resampling_grid_size: how many bins per cell
+num_profiles: Number of profiles to consider
+
+Note: signal processing package should be installed.
+%}
+clear;
+names={'Half','Double_linker','Double_OD','Double_double'};
+file_names={'6401_half_Px_img04_08.mat',...
+    '6402_double_Px_segmentation.mat',...
+    '6452_double_OD_Px_segmentation.mat',...
+'6456_double_double_Px_segmentation.mat'};
+
+popz_threshold={2000,2000,2000,2000};
+chpt_threshold={2000,3700,3700,3700};
+output_filename={'6401_half','6402_double_linker',...
+    '6452_double_OD',...
+'6456_double_double'};
+
+
+shuffle = @(a)a(randperm(numel(a)));
+ 
+resampling_grid_size=30;
+num_profiles=250;
+
+%create a header for the table
+header=[];
+for k = 1:size(names,2)
+    for j = 1:num_profiles
+        header=[header , names{k}];
+    end
+end
+
+num_cells=zeros(size(names,2));
+
+signal_distribution_all_conditions_popz = zeros( ... 
+    resampling_grid_size,size(names,1)*num_profiles);
+
+signal_distribution_all_conditions_chpt = zeros( ... 
+    resampling_grid_size,size(names,1)*num_profiles);
+
+cell_lengths_all_conditions = zeros(num_profiles,length(names));
+
+curr_len=1;
+curr_prof=1;
+
+for k=1:sizfilename) 
+    name = names{k};
+    for j=1:size(Experiment,1)
+
+    %dd = dataperlinker(strcmp(dataperlinker.name, name), :);
+
+    %exp=load(dd{1,2});
+        exp=Experiment(j).Bacteria;
+%     if dd{1,3}==1
+%             exp=exp.Experiment.Bacteria;
+%     else
+%         exp=exp.test;
+        
+%     end
+        bacteria_values = exp;
+
+%     % Combine
+%     for i=2:size(dd,1)
+%         dd{i,2}
+%         exp=load(dd{i,2});
+%         if dd{i,3}==1
+%             exp=exp.Experiment.Bacteria;
+%         else
+%             exp = exp.test;
+%         end
+%         bacteria_values=[bacteria_values;exp];
+%     end
+%     if size(dd,1)==1
+%         i=1;
+%     end
+    
+        lengths = get_cell_lengths(bacteria_values);
+    %lengths = lengths(lengths<dd{i,14});
+        lengths = shuffle(sort(lengths));
+        num_profiles_to_use=min([num_profiles size(lengths,1)]);
+        cell_lengths_all_conditions(curr_len:curr_len+num_profiles_to_use-1,k)=...
+        lengths(1:num_profiles_to_use);
+    %csvwrite(append('lengths_',name,'.csv'),lengths);
+        curr_len=curr_len+num_profiles_to_use;
+        get_number_of_grid(bacteria_values);
+    
+        num_cells(k)=size(lengths,1);
+    
+    % Visualize signal distribution
+    %visualize_signal(dd{1,1},bacteria_values,dd{1,3},dd{1,4});
+    
+%     name = dd{1,1};
+%     background = dd{1,4};
+%     threshold = dd{1,5};
+%     max_len=dd{1,14};
+
+        background_popz=2000;
+        background_chpt=3700;
+        %background_chpt=2000;
+        name="test";
+        threshold=2000;
+        max_len=7;
+
+        ch_id=3;
+    %ch_id=2;
+
+    [signal_distribution_popz,signal_distribution_chpt] = ...
+        run_analysis_for_linker_two_channels(name,...
+                                bacteria_values,...
+                                background_popz,background_chpt,threshold,max_len,...
+                                resampling_grid_size, 2,3);
+
+                            
+    if size(signal_distribution_popz,2) <  num_profiles
+        size(signal_distribution_popz,2)
+    end
+    
+    a_popz=zeros([resampling_grid_size,num_profiles]);
+    num_profiles_to_use=min([num_profiles size(signal_distribution_popz,2)]);
+    a_popz(:,1:num_profiles_to_use)= ...
+        signal_distribution_popz(:,1:num_profiles_to_use);
+    a_popz(a_popz<0)=0;
+    a_chpt=zeros([resampling_grid_size,num_profiles]);
+   
+    a_chpt(:,1:num_profiles_to_use)= ...
+        signal_distribution_chpt(:,1:num_profiles_to_use);
+     signal_distribution_all_conditions_popz(:,...
+        curr_prof:curr_prof+num_profiles_to_use-1) = signal_distribution_popz;
+     signal_distribution_all_conditions_chpt(:,...
+        curr_prof:curr_prof+num_profiles_to_use-1) = signal_distribution_chpt;
+     curr_prof=curr_prof+num_profiles_to_use;                       
+                            
+    %writematrix(signal_distribution_popz,append('signal_',name,'.csv'),...
+    %                                        'Delimiter','comma');
+    signal_mean_popz = mean(signal_distribution_popz,2);
+    signal_mean_chpt = mean(signal_distribution_chpt,2);
+    %figure;
+    %plot(signal_mean_popz);hold;plot(signal_mean_chpt);hold;
+    end
+end
+%writematrix(signal_distribution_all_conditions,'all_conditions.csv',...
+%    'Delimiter','comma');
+%writematrix(header,'all_conditions_header.csv','Delimiter','comma');
+%csvwrite('lengths_all_conditions.csv',cell_lengths_all_conditions);
+num_cells
+figure;
+plot(mat2gray(mean(signal_distribution_all_conditions_popz(:,1:size(Experiment,1)),2)));
+hold;
+plot(mat2gray(mean(signal_distribution_all_conditions_chpt(:,1:size(Experiment,1)),2)));
+hold;
+
+
+%calculate partition coefficient:
+%First, find the regions of large PopZ. 
+
+
+cols_with_all_zeros = find(all(signal_distribution_all_conditions_popz==0));
+
+pc_arr=zeros(1,50);
+for i=1:8
+    a1=[0;signal_distribution_all_conditions_popz(:,i);0];
+    a2=[0;signal_distribution_all_conditions_chpt(:,i);0];
+    %figure;
+    plot(a1);
+    [pks,locs]=findpeaks(a1,'SortStr','descend');
+    m1=mean(a1);
+    r_in=0.0;
+    [i,a1(locs(1)),m1]
+    for j=1:size(locs,1)
+        if a1(locs(j))/m1 > 2.0
+            r_in=r_in+sum(a2((max(1,locs(j)-2)):(min(locs(j)+2,size(a2,1)))));
+            [i,m1,a1(locs(j)),a1(locs(j))/m1,r_in,sum(a2)];
+        end
+    end
+    [i,r_in,sum(a2)]
+    pc_arr(i)=r_in/(sum(a2)-r_in);
+    [sum(a2),pc_arr(i)]
+end
+num_cells
+mean(nonzeros(pc_arr))
+34
+45
+
