@@ -7,7 +7,7 @@
 
 [SAXS](https://github.com/LaskerLab/doi_10.1101_2021.02.03.429226_SI/blob/main/data/wildtype_PopZ_Cc_SAXS.dat) - small-angle X-ray scattering data used in Extended Data Figure 5.
 
-[PopZ_homologs]() - sequences and sequence analysis of PopZ homologs. Used in Figures 2,3 and Extended Data Figure 2.
+[PopZ_homologs](https://github.com/LaskerLab/doi_10.1101_2021.02.03.429226_SI/blob/main/data/popz_all_idrs_based_on_08_21_2020_analysis_with_taxo.xlsx) - sequences and sequence analysis of PopZ homologs. Used in Figures 2,3 and Extended Data Figure 2.
 
 
 Simualtion files
