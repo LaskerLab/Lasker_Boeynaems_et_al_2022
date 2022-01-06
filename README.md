@@ -9,7 +9,7 @@
 
 [SAXS](https://github.com/LaskerLab/doi_10.1101_2021.02.03.429226_SI/blob/main/data/wildtype_PopZ_Cc_SAXS.dat): Small-angle X-ray scattering data used in Extended Data Figure 5.
 
-Simualtion files
+[All-atom simualtions](https://github.com/holehouse-lab/supportingdata/tree/master/2022/lasker_boeynaems_2022): simualation files and anlaysis.
 
 [ChpT partitioning](https://github.com/LaskerLab/doi_10.1101_2021.02.03.429226_SI/tree/main/data/ChpT_partitioning): Data and analysis of ChpT partitioning into PopZ condensates. This data was used in Figure 3 and Extended Data Figure 10.
 
