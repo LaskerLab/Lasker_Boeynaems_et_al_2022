@@ -5,11 +5,11 @@
 
 [wildtype_PopZ_Cc_SAXS.dat](https://github.com/LaskerLab/doi_10.1101_2021.02.03.429226_SI/blob/main/data/wildtype_PopZ_Cc_SAXS.dat) - small-angle X-ray scattering data used in Extended Data Figure 5.
 
-Simualtion files
+[PopZ_homologs.xlsx]() - sequences and sequence analysis of PopZ homologs. Used in Figures 2,3 and Extended Data Figure 2.
 
-qPCR data
+
+Simualtion files
 
 ChpT localization data - 
 
-fasta files with PopZ alignments
 
