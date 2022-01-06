@@ -13,6 +13,6 @@ Simualtion files
 
 [ChpT partitioning](https://github.com/LaskerLab/doi_10.1101_2021.02.03.429226_SI/tree/main/data/ChpT_partitioning): Data and analysis of ChpT partitioning into PopZ condensates. This data was used in Figure 3 and Extended Data Figure 10.
 
-**_Caulobacter_ tomograms**: Reconstructed tomograms (EMD-23622, EMD-23623, EMD-23624) will be available to download from the [Electron Microscopy Data Resrouce(https://www.emdataresource.org/index.html) upon publication. This data was used in Figure 3 and Extended Data Figure 9.
+**_Caulobacter_ tomograms**: Reconstructed tomograms (EMD-23622, EMD-23623, EMD-23624) will be available to download from the [Electron Microscopy Data Resrouce](https://www.emdataresource.org/index.html) upon publication. This data was used in Figure 3 and Extended Data Figure 9.
 
 
