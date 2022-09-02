@@ -3,17 +3,13 @@
 >Last updated 2022-01-06
 
 
-This repository contains additional information for the revised manuscript:
+This repository contains supplementary information for the manuscript:
 
 The material properties of a bacterial-derived biomolecular condensate tune biological function in natural and synthetic systems (2022)
 
 Lasker K.*#, Boeynaems S.*, Lam V., Scholl S., Stainton E., Jacquemyn M., Daelemans D., Deniz A., Villa E., Holehouse A. S., Gitler A. D.#, Shapiro L.#
 
 (*first authors, #corresponding authors)
-
-This is the revised and resubmitted version of the original submission.
-
-Lasker, K., Boeynaems, S., Lam, V., Stainton, E., Jacquemyn, M., Daelemans, D., Villa, E., Holehouse, A. S., Gitler, A. D., & Shapiro, L. (2021). A modular platform for engineering function of natural and synthetic biomolecular condensates. [bioRxiv](https://www.biorxiv.org/content/10.1101/2021.02.03.429226v1).
 
 **Supporting information:**
 
