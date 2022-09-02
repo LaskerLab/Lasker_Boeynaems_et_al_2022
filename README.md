@@ -1,6 +1,5 @@
 
-
->Last updated 2022-01-06
+[![DOI](https://zenodo.org/badge/443928795.svg)](https://zenodo.org/badge/latestdoi/443928795)
 
 
 This repository contains supplementary information for the manuscript:
